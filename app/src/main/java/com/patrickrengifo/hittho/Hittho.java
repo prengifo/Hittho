@@ -3,6 +3,8 @@ package com.patrickrengifo.hittho;
 import android.app.Application;
 
 import com.facebook.soloader.SoLoader;
+import com.joanzapata.iconify.Iconify;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
 import com.patrickrengifo.hittho.di.components.DaggerNetworkComponent;
 import com.patrickrengifo.hittho.di.components.NetworkComponent;
 import com.patrickrengifo.hittho.di.modules.AppModule;
@@ -22,6 +24,7 @@ public class Hittho extends Application {
         super.onCreate();
 
         SoLoader.init(this, false);
+        Iconify.with(new FontAwesomeModule());
 
         appModule = new AppModule(this);
         networkModule = DaggerNetworkComponent.builder()
