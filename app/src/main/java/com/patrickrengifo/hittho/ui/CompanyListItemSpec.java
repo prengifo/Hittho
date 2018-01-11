@@ -28,7 +28,7 @@ import static com.facebook.yoga.YogaEdge.TOP;
  */
 
 @LayoutSpec
-public class CompanyListItemSpec {
+class CompanyListItemSpec {
 
     @OnCreateLayout
     static ComponentLayout onCreateLayout(ComponentContext c,

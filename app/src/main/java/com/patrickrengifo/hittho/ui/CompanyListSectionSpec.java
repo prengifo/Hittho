@@ -35,7 +35,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 @GroupSectionSpec
-public class CompanyListSectionSpec {
+class CompanyListSectionSpec {
 
     @OnCreateChildren
     static Children onCreateChildren(final SectionContext c,
@@ -115,6 +115,7 @@ public class CompanyListSectionSpec {
             @State int start,
             @State int count
     ) {
+        // Load more items
         if (totalCount == companies.size() - 1) {
             CompanyListSection.updateStartParam(c, companies.size());
             service.getCompanies("ica", "57.75072152:11.81813876", "relevance",

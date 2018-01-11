@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
                                         .marginDip(ALL, 140)
                                         .build()
                         )
-                        .section(CompanyListSection.create(new SectionContext(c))
-                                .build())
+                        .section(
+                                CompanyListSection.create(new SectionContext(c))
+                                        .build())
                         .build());
 
         setContentView(lithoView);

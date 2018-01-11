@@ -16,7 +16,6 @@ import com.patrickrengifo.hittho.di.modules.NetworkModule;
 
 public class Hittho extends Application {
 
-    private AppModule appModule;
     private NetworkComponent networkModule;
 
     @Override
@@ -26,7 +25,7 @@ public class Hittho extends Application {
         SoLoader.init(this, false);
         Iconify.with(new FontAwesomeModule());
 
-        appModule = new AppModule(this);
+        AppModule appModule = new AppModule(this);
         networkModule = DaggerNetworkComponent.builder()
                 .networkModule(new NetworkModule())
                 .build();
