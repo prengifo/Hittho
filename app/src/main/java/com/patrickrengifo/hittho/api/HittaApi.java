@@ -1,5 +1,7 @@
 package com.patrickrengifo.hittho.api;
 
+import com.patrickrengifo.hittho.models.CompaniesResponseModel;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -13,9 +15,9 @@ import static com.patrickrengifo.hittho.Constants.APIPath.SEARCH;
 public interface HittaApi {
 
     @GET(SEARCH)
-    Observable<Object> getCompanies(@Query("query") String query,
-                                    @Query("geo.hint") String geo,
-                                    @Query("sort.order") String sortOrder,
-                                    @Query("range.from") String rangeFrom,
-                                    @Query("range.to") String rangeTo);
+    Observable<CompaniesResponseModel> getCompanies(@Query("query") String query,
+                                                    @Query("geo.hint") String geo,
+                                                    @Query("sort.order") String sortOrder,
+                                                    @Query("range.from") String rangeFrom,
+                                                    @Query("range.to") String rangeTo);
 }
