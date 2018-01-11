@@ -10,6 +10,7 @@ import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.Prop;
 import com.facebook.litho.widget.Image;
 import com.facebook.litho.widget.Text;
+import com.facebook.yoga.YogaJustify;
 import com.patrickrengifo.hittho.R;
 
 import static com.facebook.yoga.YogaEdge.ALL;
@@ -30,6 +31,7 @@ public class CompanyListItemSpec {
 
         ComponentLayout column = Column.create(c)
                 .paddingDip(LEFT, 16)
+                .justifyContent(YogaJustify.CENTER)
                 .child(
                         Text.create(c)
                                 .text(displayName)
@@ -45,6 +47,8 @@ public class CompanyListItemSpec {
         Component image = Image.create(c)
                 // Temporal icon
                 .drawableRes(R.drawable.ic_launcher_foreground)
+                .widthDip(80)
+                .heightDip(80)
                 .build();
 
         return Row.create(c)
