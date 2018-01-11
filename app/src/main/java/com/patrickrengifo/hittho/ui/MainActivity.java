@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
-import com.facebook.litho.widget.Text;
+import com.facebook.litho.sections.SectionContext;
+import com.facebook.litho.sections.widget.RecyclerCollectionComponent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,10 +16,9 @@ public class MainActivity extends AppCompatActivity {
         final ComponentContext c = new ComponentContext(this);
 
         final LithoView lithoView = LithoView.create(
-                this /* context */,
-                Text.create(c)
-                        .text("Hello, World!")
-                        .textSizeDip(16)
+                this,
+                RecyclerCollectionComponent.create(c)
+                        .section(CompanyListSection.create(new SectionContext(c)).build())
                         .build());
 
         setContentView(lithoView);
