@@ -52,7 +52,7 @@ public class CompanyListItemSpec {
                 .build();
 
         return Row.create(c)
-                .backgroundAttr(android.R.attr.selectableItemBackground)
+//                .backgroundAttr(android.R.attr.selectableItemBackground)
                 .paddingDip(ALL, 16)
                 .child(image)
                 .child(column)
