@@ -48,8 +48,8 @@ public class CompanyListSectionSpec {
                 .component(
                         CompanyListItem.create(c)
                                 .displayName(model.displayName)
-                                .street(model.address.street)
-                                .city(model.address.city)
+                                .street(model.address.get(0).street)
+                                .city(model.address.get(0).city)
                                 .build())
                 .build();
     }
@@ -58,6 +58,6 @@ public class CompanyListSectionSpec {
         hittaApi.getCompanies("ica", "57.75072152:11.81813876", "relevance", "1", "51")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(results -> companies.addAll(results.result.company));
+                .subscribe(results -> companies.addAll(results.result.companies.company));
     }
 }

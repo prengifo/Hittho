@@ -6,9 +6,9 @@ package com.patrickrengifo.hittho.models;
 
 public class CompaniesResponseModel {
 
-    public final CompaniesListModel result;
+    public final CompaniesModel result;
 
-    public CompaniesResponseModel(CompaniesListModel result) {
+    public CompaniesResponseModel(CompaniesModel result) {
         this.result = result;
     }
 }
