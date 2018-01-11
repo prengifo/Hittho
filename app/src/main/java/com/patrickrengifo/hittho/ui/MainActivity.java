@@ -7,6 +7,11 @@ import com.facebook.litho.ComponentContext;
 import com.facebook.litho.LithoView;
 import com.facebook.litho.sections.SectionContext;
 import com.facebook.litho.sections.widget.RecyclerCollectionComponent;
+import com.facebook.litho.widget.Progress;
+import com.facebook.yoga.YogaAlign;
+import com.patrickrengifo.hittho.R;
+
+import static com.facebook.yoga.YogaEdge.ALL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +23,15 @@ public class MainActivity extends AppCompatActivity {
         final LithoView lithoView = LithoView.create(
                 this,
                 RecyclerCollectionComponent.create(c)
-                        .section(CompanyListSection.create(new SectionContext(c)).build())
+                        .loadingComponent(
+                                Progress.create(c)
+                                        .alignSelf(YogaAlign.CENTER)
+                                        .colorRes(R.color.colorAccent)
+                                        .marginDip(ALL, 140)
+                                        .build()
+                        )
+                        .section(CompanyListSection.create(new SectionContext(c))
+                                .build())
                         .build());
 
         setContentView(lithoView);
