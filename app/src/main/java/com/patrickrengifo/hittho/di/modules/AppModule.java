@@ -1,4 +1,4 @@
-package com.patrickrengifo.hittho.di.module;
+package com.patrickrengifo.hittho.di.modules;
 
 import com.patrickrengifo.hittho.Hittho;
 
