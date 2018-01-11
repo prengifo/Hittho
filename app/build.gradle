@@ -41,6 +41,7 @@ dependencies {
 
     // For testing
     testImplementation "com.facebook.litho:litho-testing:$litho_version"
+    androidTestImplementation"com.facebook.litho:litho-espresso:$litho_version"
 
     // Sections
     implementation "com.facebook.litho:litho-sections-core:$litho_version"

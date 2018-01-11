@@ -1,4 +1,4 @@
-package com.patrickrengifo.hittho;
+package com.patrickrengifo.hittho.ui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
