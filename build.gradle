@@ -29,3 +29,4 @@ task clean(type: Delete) {
 ext.support_version = "26.1.0"
 ext.litho_version = "0.11.0"
 ext.dagger_version = "2.14.1"
+ext.retrofit_version = "2.3.0"
