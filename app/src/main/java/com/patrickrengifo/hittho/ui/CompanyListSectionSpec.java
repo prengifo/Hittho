@@ -62,7 +62,10 @@ public class CompanyListSectionSpec {
                 String.valueOf(start.get()), String.valueOf(count.get()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(results -> CompanyListSection.updateDataAsync(c, results.result.companies.company));
+                .subscribe(results -> {
+                    CompanyListSection.updateCompaniesParam(c, results.result.companies.company);
+                    SectionLifecycle.dispatchLoadingEvent(c, false, LoadingEvent.LoadingState.SUCCEEDED, null);
+                });
     }
 
     @OnCreateService
@@ -89,8 +92,8 @@ public class CompanyListSectionSpec {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(results -> {
-                    CompanyListSection.updateDataAsync(c, results.result.companies.company);
                     SectionLifecycle.dispatchLoadingEvent(c, false, LoadingEvent.LoadingState.SUCCEEDED, null);
+                    CompanyListSection.updateCompaniesParam(c, results.result.companies.company);
                 });
     }
 
@@ -118,13 +121,13 @@ public class CompanyListSectionSpec {
                     String.valueOf(companies.size() + 1), String.valueOf(totalCount + 52))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(results -> CompanyListSection.updateDataAsync(c, results.result.companies.company));
+                    .subscribe(results -> CompanyListSection.updateCompaniesParam(c, results.result.companies.company));
         }
     }
 
 
     @OnUpdateState
-    static void updateData(StateValue<List<CompanyModel>> companies, StateValue<Integer> start, @Param List<CompanyModel> data) {
+    static void updateCompaniesParam(StateValue<List<CompanyModel>> companies, StateValue<Integer> start, @Param List<CompanyModel> data) {
         if (start.get() == 1) {
             companies.set(data);
         } else {
